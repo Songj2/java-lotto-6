@@ -53,25 +53,7 @@ public class Validated {
                 return false;
             }
         }
-        return validateRange(StringUtil.makeList(numbers));
-    }
-
-    private boolean validateRange(List<Integer> numbers) {
-        try {
-            rangeCondition(numbers);
-        } catch (IllegalArgumentException e) {
-            System.out.println(Messages.ERROR_RANGE_OVER.getMessage());
-            return false;
-        }
-        return duplicated(numbers);
-    }
-
-    private void rangeCondition(List<Integer> numbers){
-        for (int number : numbers) {
-            if (Numbers.LOTTO_MIN_VALUE.getValue() > number || number > Numbers.LOTTO_MAX_VALUE.getValue()) {
-                throw new IllegalArgumentException();
-            }
-        }
+        return duplicated(StringUtil.makeList(numbers));
     }
 
     private boolean duplicated(List<Integer> numbers) {
@@ -101,7 +83,25 @@ public class Validated {
             System.out.println(Messages.ERROR_SIZE_MISS.getMessage());
             return false;
         }
+        return validateRange(winningNumber);
+    }
+
+    private boolean validateRange(List<Integer> numbers) {
+        try {
+            rangeCondition(numbers);
+        } catch (IllegalArgumentException e) {
+            System.out.println(Messages.ERROR_RANGE_OVER.getMessage());
+            return false;
+        }
         return true;
+    }
+
+    private void rangeCondition(List<Integer> numbers){
+        for (int number : numbers) {
+            if (Numbers.LOTTO_MIN_VALUE.getValue() > number || number > Numbers.LOTTO_MAX_VALUE.getValue()) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
 //    보너스 번호 유효성 검사
@@ -119,6 +119,17 @@ public class Validated {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(Messages.ERROR_DUPLICATED.getMessage());
+            return false;
+        }
+        return validateRange(bonus);
+    }
+    private boolean validateRange(int number){
+        try {
+            if (Numbers.LOTTO_MIN_VALUE.getValue()>number|| Numbers.LOTTO_MAX_VALUE.getValue()<number){
+                throw new IllegalArgumentException();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(Messages.ERROR_RANGE_OVER.getMessage());
             return false;
         }
         return true;
