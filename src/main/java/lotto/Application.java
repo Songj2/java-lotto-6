@@ -13,5 +13,8 @@ public class Application {
         Output output= new Output();
         output.printPublishedLotto(lottoNumbers);
 
+
+        Lotto winningNum= new Lotto(input.inputWinningNumber());
+        int bonusNumber= input.bonusNumber(winningNum);
     }
 }
