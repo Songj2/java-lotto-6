@@ -1,11 +1,14 @@
-package lotto;
+package lotto.model;
+
+import lotto.enumModel.WinningRank;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class WinningRankDTO {
-    private Map<String, Integer> winningResult= new HashMap<>();
-    public WinningRankDTO(){
+public class ResultDTO {
+    private final Map<String, Integer> winningResult = new HashMap<>();
+
+    public ResultDTO() {
         winningResult.put(WinningRank.FIFTH.name(), 0);
         winningResult.put(WinningRank.FOURTH.name(), 0);
         winningResult.put(WinningRank.THIRD.name(), 0);
@@ -13,10 +16,7 @@ public class WinningRankDTO {
         winningResult.put(WinningRank.FIRST.name(), 0);
     }
 
-    public Map<String, Integer> getWinningResult(){
+    public Map<String, Integer> getWinningResult() {
         return winningResult;
-    }
-    public void setWinningResult(Map<String, Integer> winningResult) {
-        this.winningResult = winningResult;
     }
 }

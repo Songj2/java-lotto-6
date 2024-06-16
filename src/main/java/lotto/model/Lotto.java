@@ -1,6 +1,7 @@
-package lotto;
+package lotto.model;
 
-import java.util.Collections;
+import lotto.enumModel.Messages;
+
 import java.util.List;
 
 public class Lotto {

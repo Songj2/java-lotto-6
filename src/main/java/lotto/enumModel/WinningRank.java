@@ -1,4 +1,4 @@
-package lotto;
+package lotto.enumModel;
 
 public enum WinningRank {
     FIFTH(5000, 3, false, "3개 일치 (5,000원) - "),
@@ -10,13 +10,13 @@ public enum WinningRank {
     private final int reward;
     private final int matched;
     private final boolean bonus;
-    private final String matchedCount;
+    private final String printMessages;
 
-    WinningRank(int reward, int matched, boolean bonus, String matchedCount) {
+    WinningRank(int reward, int matched, boolean bonus, String printMessages) {
         this.reward = reward;
         this.matched = matched;
         this.bonus = bonus;
-        this.matchedCount = matchedCount;
+        this.printMessages = printMessages;
     }
 
     public int getReward() {
@@ -31,8 +31,8 @@ public enum WinningRank {
         return bonus;
     }
 
-    public String getMatchedCount() {
-        return matchedCount;
+    public String getPrintMessages() {
+        return printMessages;
     }
 
 }
