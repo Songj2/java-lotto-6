@@ -70,6 +70,9 @@ public class Input {
             return false;
         }
         List<Integer> winningNumbers= splitString(winnerNumbers);
+        if (!validateRange(winningNumbers)){
+            return false;
+        }
         if (!duplicated(winningNumbers)) {
             return false;
         }
@@ -99,6 +102,19 @@ public class Input {
         return true;
     }
 
+    private boolean validateRange(List<Integer> numbers){
+        try {
+            for (int number : numbers) {
+                if (1 > number || number > 45) {
+                    throw new IllegalArgumentException();
+                }
+            }
+        }catch (IllegalArgumentException e){
+            System.out.println(Messages.ERROR_RANGE_OVER.getMessage());
+            return false;
+        }
+        return true;
+    }
     private boolean duplicated(List<Integer> numbers) {
         try {
             for (int i = 0; i < numbers.size() - 1; i++) {
