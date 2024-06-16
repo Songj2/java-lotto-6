@@ -1,5 +1,7 @@
 package lotto;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -13,8 +15,10 @@ public class Application {
         Output output= new Output();
         output.printPublishedLotto(lottoNumbers);
 
-
-        Lotto winningNum= new Lotto(input.inputWinningNumber());
+List<Integer> numbers=input.inputWinningNumber();
+SortedList sortedList= new SortedList(numbers);
+        Lotto winningNum= new Lotto(sortedList.getList());
         int bonusNumber= input.bonusNumber(winningNum);
+        output.printResult(lottoNumbers, winningNum, bonusNumber, purchasePrice);
     }
 }
