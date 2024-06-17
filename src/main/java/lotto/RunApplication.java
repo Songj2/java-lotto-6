@@ -17,24 +17,27 @@ public class RunApplication {
     private final Lotto winningNumbers;
 
     public RunApplication() {
-        int purchasePrice = inputPurchasePrice();
+        int purchasePrice = Integer.parseInt(inputPurchasePrice());
         int countOfLotto = purchasePrice / Numbers.LOTTO_PRICE.getValue();
         List<Lotto> lottoList = publishedNumbers(countOfLotto);
+
         Output output = new Output();
         output.printPublishedLotto(lottoList);
-        winningNumbers = inputWinningNumbers();
-        int bonusNumber = inputBonusNumber();
+        winningNumbers = new Lotto(StringUtil.makeList(inputWinningNumbers()));
+
+        int bonusNumber = Integer.parseInt(inputBonusNumber());
+
         ResultController resultController = new ResultController();
         Map<String, Integer> result = resultController.resultData(lottoList, winningNumbers, bonusNumber);
         output.printResult(result, resultController.calRateOfAmount(result, purchasePrice));
     }
 
-    private int inputPurchasePrice() {
+    private String inputPurchasePrice() {
         String inputPurchasePrice;
         do {
             inputPurchasePrice = input.inputPurchasePrice();
         } while (!validated.validatePurchasePrice(inputPurchasePrice));
-        return Integer.parseInt(inputPurchasePrice);
+        return inputPurchasePrice;
     }
 
     private List<Lotto> publishedNumbers(int count) {
@@ -42,20 +45,20 @@ public class RunApplication {
         return randomNumbers.RandomNumbers(count);
     }
 
-    private Lotto inputWinningNumbers() {
+    private String inputWinningNumbers() {
         String inputWinningNumbers;
         do {
             inputWinningNumbers = input.inputWinningNumber();
         } while (!validated.validateWinnerNumber(inputWinningNumbers));
-        return new Lotto(ListUtil.sort(StringUtil.makeList(inputWinningNumbers)));
+        return  inputWinningNumbers;
     }
 
-    private int inputBonusNumber() {
+    private String inputBonusNumber() {
         String inputBonusNumber;
         do {
             inputBonusNumber = input.bonusNumber();
         } while (!validated.validateBonusNumber(inputBonusNumber, winningNumbers));
-        return Integer.parseInt(inputBonusNumber);
+        return inputBonusNumber;
     }
 
 }
