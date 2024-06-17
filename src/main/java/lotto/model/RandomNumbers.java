@@ -8,18 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RandomNumbers {
-    public RandomNumbers(){}
+    public RandomNumbers() {
+    }
 
-    public List<Lotto>  RandomNumbers(int num){
-        List<Lotto> lottoNumbers= new ArrayList<>();
-        for (int i=0; i<num; i++){
-            Lotto lotto= new Lotto(ListUtil.sort(randomNumber()));
+    public List<Lotto> RandomNumbers(int num) {
+        List<Lotto> lottoNumbers = new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            Lotto lotto = new Lotto(ListUtil.sort(randomNumber()));
             lottoNumbers.add(lotto);
         }
         return lottoNumbers;
     }
 
-    private List<Integer> randomNumber(){
+    private List<Integer> randomNumber() {
         return Randoms.pickUniqueNumbersInRange(1, 45, Numbers.LOTTO_COUNT.getValue());
     }
 }

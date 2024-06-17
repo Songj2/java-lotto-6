@@ -10,7 +10,7 @@ public class Validated {
     public Validated() {
     }
 
-//    구매금액 유효성 검사
+    //    구매금액 유효성 검사
     public boolean validatePurchasePrice(String purchase) {
         if (!validateNumber(purchase)) {
             return false;
@@ -42,7 +42,7 @@ public class Validated {
         }
     }
 
-//    당첨번호 유효성 검사
+    //    당첨번호 유효성 검사
     public boolean validateWinnerNumber(String winnerNumbers) {
         return validateNumbers(winnerNumbers);
     }
@@ -66,7 +66,7 @@ public class Validated {
         return validateSize(numbers);
     }
 
-    private void duplicatedCondition(List<Integer> numbers){
+    private void duplicatedCondition(List<Integer> numbers) {
         for (int i = 0; i < numbers.size() - 1; i++) {
             if (numbers.get(i).equals(numbers.get(i + 1))) {
                 throw new IllegalArgumentException();
@@ -96,7 +96,7 @@ public class Validated {
         return true;
     }
 
-    private void rangeCondition(List<Integer> numbers){
+    private void rangeCondition(List<Integer> numbers) {
         for (int number : numbers) {
             if (Numbers.LOTTO_MIN_VALUE.getValue() > number || number > Numbers.LOTTO_MAX_VALUE.getValue()) {
                 throw new IllegalArgumentException();
@@ -104,7 +104,7 @@ public class Validated {
         }
     }
 
-//    보너스 번호 유효성 검사
+    //    보너스 번호 유효성 검사
     public boolean validateBonusNumber(String bonus, Lotto winningNumber) {
         if (!validateNumber(bonus)) {
             return false;
@@ -123,9 +123,10 @@ public class Validated {
         }
         return validateRange(bonus);
     }
-    private boolean validateRange(int number){
+
+    private boolean validateRange(int number) {
         try {
-            if (Numbers.LOTTO_MIN_VALUE.getValue()>number|| Numbers.LOTTO_MAX_VALUE.getValue()<number){
+            if (Numbers.LOTTO_MIN_VALUE.getValue() > number || Numbers.LOTTO_MAX_VALUE.getValue() < number) {
                 throw new IllegalArgumentException();
             }
         } catch (IllegalArgumentException e) {

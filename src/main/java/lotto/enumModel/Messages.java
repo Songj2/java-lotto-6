@@ -15,10 +15,12 @@ public enum Messages {
     ERROR_DUPLICATED("[ERROR] 중복된 숫자는 입력할 수 없습니다.");
 
     private final String message;
+
     Messages(String message) {
-        this.message= message;
+        this.message = message;
     }
-    public String getMessage(){
+
+    public String getMessage() {
         return message;
     }
 }

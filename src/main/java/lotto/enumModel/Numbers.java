@@ -8,7 +8,7 @@ public enum Numbers {
     private final int value;
 
     Numbers(int value) {
-        this.value= value;
+        this.value = value;
     }
 
     public int getValue() {

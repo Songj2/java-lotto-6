@@ -4,7 +4,6 @@ import lotto.Controller.ResultController;
 import lotto.enumModel.Numbers;
 import lotto.model.Lotto;
 import lotto.model.RandomNumbers;
-import lotto.util.ListUtil;
 import lotto.util.StringUtil;
 import lotto.util.Validated;
 
@@ -50,7 +49,7 @@ public class RunApplication {
         do {
             inputWinningNumbers = input.inputWinningNumber();
         } while (!validated.validateWinnerNumber(inputWinningNumbers));
-        return  inputWinningNumbers;
+        return inputWinningNumbers;
     }
 
     private String inputBonusNumber() {

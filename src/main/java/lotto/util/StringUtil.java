@@ -14,7 +14,8 @@ public final class StringUtil {
         }
         return list;
     }
-    private static String[] splitStr(String str){
+
+    private static String[] splitStr(String str) {
         return str.split(",");
     }
 }

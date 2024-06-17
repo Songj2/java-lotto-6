@@ -21,7 +21,7 @@ public class Lotto {
             if (numbers.size() != 6) {
                 throw new IllegalArgumentException();
             }
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(Messages.ERROR_SIZE_MISS.getMessage());
         }
     }
